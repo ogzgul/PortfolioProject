@@ -31,7 +31,6 @@ namespace Business.Concrete
             var deletedAbout = _aboutDal.Get(x => x.AboutID == id);
             _aboutDal.Delete(deletedAbout);
             return new SuccessResult($"Deleted about: {id} number's {Messages.AboutDeleted}");
-
         }
 
         public IDataResult<List<About>> GetAll()
