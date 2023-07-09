@@ -1,4 +1,8 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Business.Concrete;
+using DataAccess.Concrete.EntityFramework;
+using Entities.Concrete;
+using Microsoft.AspNetCore.Mvc;
+using System;
 
 namespace PortfolioProject.Controllers
 {
@@ -16,6 +20,15 @@ namespace PortfolioProject.Controllers
 
         public PartialViewResult NavbarPartial()
         {
+            return PartialView();
+        }
+        [HttpPost]
+        public PartialViewResult SendMessage(Message message)
+        {
+            MessageManager _messageManager = new MessageManager(new EfMessageDal());
+            message.Date = Convert.ToDateTime(DateTime.Now.ToShortDateString());
+            message.Status = true;
+            _messageManager.Add(message);
             return PartialView();
         }
     }
