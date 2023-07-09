@@ -30,6 +30,7 @@ namespace Business.Concrete
         public IResult Delete(int id)
         {
             var deletedSkill = _skillDal.Get(x => x.SkillID == id);
+            _skillDal.Delete(deletedSkill);
             return new SuccessResult($"Deleted skill: {id} number's {Messages.SkillDeleted}");
         }
 
@@ -39,7 +40,7 @@ namespace Business.Concrete
             return new SuccessDataResult<List<Skill>>(listedSkill, Messages.SkillGetAll);
         }
 
-        public IResult GetById(int skillId)
+        public IDataResult<Skill> GetById(int skillId)
         {
             var listSkillGetById = _skillDal.Get(x => x.SkillID == skillId);
             return new SuccessDataResult<Skill>(listSkillGetById, Messages.SkillGetById);

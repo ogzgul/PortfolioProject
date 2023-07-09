@@ -11,7 +11,7 @@ namespace Business.Abstract
     public interface ISkillService
     {
         IDataResult<List<Skill>> GetAll();
-        IResult GetById(int skillId);
+        IDataResult<Skill> GetById(int skillId);
         IResult Add(Skill skill);
         IResult Update(Skill skill);
         IResult Delete(int id);

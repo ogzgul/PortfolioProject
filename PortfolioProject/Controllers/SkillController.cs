@@ -1,4 +1,5 @@
 ﻿using Business.Concrete;
+using Core.Utilities.Results;
 using DataAccess.Concrete.EntityFramework;
 using Entities.Concrete;
 using Microsoft.AspNetCore.Mvc;
@@ -30,5 +31,30 @@ namespace PortfolioProject.Controllers
             skillManager.Add(skill);
             return RedirectToAction("Index");
         }
+       
+        public IActionResult DeleteSkill(int id)
+        {
+            var result = skillManager.GetById(id);
+            var skill = result.Data;
+            skillManager.Delete(skill.SkillID);
+            return RedirectToAction("Index");
+        }
+        [HttpGet]
+        public IActionResult EditSkill(int id)
+        {
+            ViewBag.v1 = "Düzenleme";
+            ViewBag.v2 = "Yetenekler";
+            ViewBag.v3 = "Yetenek Güncelleme";
+            var editSkill=skillManager.GetById(id).Data;
+            return View(editSkill);
+        }
+
+        [HttpPost]
+        public IActionResult EditSkill(Skill skill)
+        {
+            skillManager.Update(skill);
+            return RedirectToAction("Index");
+        }
+        
     }
 }

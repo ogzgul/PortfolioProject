@@ -30,6 +30,7 @@ namespace Business.Concrete
         public IResult Delete(int id)
         {
             var deletedService = _serviceDal.Get(x => x.ServiceID == id);
+            _serviceDal.Delete(deletedService);
             return new SuccessResult($"Deleted service: {id} number's {Messages.ServiceDeleted}");
         }
 
