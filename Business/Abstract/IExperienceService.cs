@@ -11,7 +11,7 @@ namespace Business.Abstract
     public interface IExperienceService
     {
         IDataResult<List<Experience>> GetAll();
-        IResult GetById(int experienceId);
+        IDataResult<Experience> GetById(int experienceId);
         IResult Add(Experience experience);
         IResult Update(Experience experience);
         IResult Delete(int id);

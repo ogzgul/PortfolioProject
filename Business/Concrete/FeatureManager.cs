@@ -30,6 +30,7 @@ namespace Business.Concrete
         public IResult Delete(int id)
         {
             var deletedFeature = _featureDal.Get(x => x.FeatureID == id);
+            _featureDal.Delete(deletedFeature);
             return new SuccessResult($"Deleted feature: {id} number's {Messages.FeatureDeleted}");
         }
 
@@ -39,7 +40,7 @@ namespace Business.Concrete
             return new SuccessDataResult<List<Feature>>(listedFeature, Messages.FeatureGetAll);
         }
 
-        public IResult GetById(int featureId)
+        public IDataResult<Feature> GetById(int featureId)
         {
             var listFeatureGetById = _featureDal.Get(x => x.FeatureID == featureId);
             return new SuccessDataResult<Feature>(listFeatureGetById, Messages.FeatureGetById);

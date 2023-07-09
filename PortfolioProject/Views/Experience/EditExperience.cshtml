@@ -1,0 +1,27 @@
+﻿@model Entities.Concrete.Experience
+@{
+    ViewData["Title"] = "EditSkill";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<div class="card-header border-0">
+    <h3 class="mb-0">Deneyim Düzenleme Sayfası</h3>
+</div>
+@using (Html.BeginForm("EditExperience", "Experience", FormMethod.Post))
+{
+    @Html.HiddenFor(x=>x.ExperienceID)
+    <br />
+    @Html.Label("Yetenek Başlığı")
+    @Html.TextBoxFor(x=>x.Name,new {@class="form-control"})
+    <br />
+    <label>Tarih</label>
+    @Html.TextBoxFor(x=>x.Date,new {@class="form-control"})
+    <br />
+    <label>Resim yolu</label>
+    @Html.TextBoxFor(x=>x.ImageUrl,new {@class="form-control"})
+    <br />
+    <label>Açıklama</label>
+    @Html.TextAreaFor(x=>x.Description,new {@class="form-control"})
+    <br />
+    <button class="btn btn-succes">Güncelle</button>
+}
+

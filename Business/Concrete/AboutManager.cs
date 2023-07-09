@@ -39,7 +39,7 @@ namespace Business.Concrete
             return new SuccessDataResult<List<About>>(listedAbout, Messages.AboutGetAll);
         }
 
-        public IResult GetById(int aboutId)
+        public IDataResult<About> GetById(int aboutId)
         {
             var listAboutGetById = _aboutDal.Get(x => x.AboutID == aboutId);
             return new SuccessDataResult<About>(listAboutGetById, Messages.AboutGetById);

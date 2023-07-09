@@ -11,7 +11,7 @@ namespace Business.Abstract
     public interface IFeatureService
     {
         IDataResult<List<Feature>> GetAll();
-        IResult GetById(int featureId);
+        IDataResult<Feature> GetById(int featureId);
         IResult Add(Feature feature);
         IResult Update(Feature feature);
         IResult Delete(int id);

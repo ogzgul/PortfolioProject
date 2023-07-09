@@ -39,7 +39,7 @@ namespace Business.Concrete
             return new SuccessDataResult<List<Contact>>(listedContact, Messages.ContactGetAll);
         }
 
-        public IResult GetById(int contactId)
+        public IDataResult<Contact> GetById(int contactId)
         {
             var listContactGetById = _contactDal.Get(x => x.ContactID == contactId);
             return new SuccessDataResult<Contact>(listContactGetById, Messages.ContactGetById);

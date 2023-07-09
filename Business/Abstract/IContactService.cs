@@ -11,7 +11,7 @@ namespace Business.Abstract
     public interface IContactService
     {
         IDataResult<List<Contact>> GetAll();
-        IResult GetById(int contactId);
+        IDataResult<Contact> GetById(int contactId);
         IResult Add(Contact contact);
         IResult Update(Contact contact);
         IResult Delete(int id);

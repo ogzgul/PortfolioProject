@@ -30,6 +30,7 @@ namespace Business.Concrete
         public IResult Delete(int id)
         {
             var deletedSocialMedia = _socialMediaDal.Get(x => x.SocialMediaID == id);
+            _socialMediaDal.Delete(deletedSocialMedia);
             return new SuccessResult($"Deleted socialMedia: {id} number's {Messages.SocialMediaDeleted}");
         }
 
@@ -39,7 +40,7 @@ namespace Business.Concrete
             return new SuccessDataResult<List<SocialMedia>>(listedSocialMedia, Messages.SocialMediaGetAll);
         }
 
-        public IResult GetById(int socialMediaId)
+        public IDataResult<SocialMedia> GetById(int socialMediaId)
         {
             var listSocialMediaGetById = _socialMediaDal.Get(x => x.SocialMediaID == socialMediaId);
             return new SuccessDataResult<SocialMedia>(listSocialMediaGetById, Messages.SocialMediaGetById);

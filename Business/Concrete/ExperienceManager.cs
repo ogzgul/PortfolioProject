@@ -30,6 +30,7 @@ namespace Business.Concrete
         public IResult Delete(int id)
         {
             var deletedExperience = _experienceDal.Get(x => x.ExperienceID == id);
+            _experienceDal.Delete(deletedExperience);
             return new SuccessResult($"Deleted experience: {id} number's {Messages.ExperienceDeleted}");
         }
 
@@ -39,7 +40,7 @@ namespace Business.Concrete
             return new SuccessDataResult<List<Experience>>(listedExperience, Messages.ExperienceGetAll);
         }
 
-        public IResult GetById(int experienceId)
+        public IDataResult<Experience> GetById(int experienceId)
         {
             var listExperienceGetById = _experienceDal.Get(x => x.ExperienceID == experienceId);
             return new SuccessDataResult<Experience>(listExperienceGetById, Messages.ExperienceGetById);

@@ -11,7 +11,7 @@ namespace Business.Abstract
     public interface ISocialMediaService
     {
         IDataResult<List<SocialMedia>> GetAll();
-        IResult GetById(int socialMediaId);
+        IDataResult<SocialMedia> GetById(int socialMediaId);
         IResult Add(SocialMedia socialMedia);
         IResult Update(SocialMedia socialMedia);
         IResult Delete(int id);

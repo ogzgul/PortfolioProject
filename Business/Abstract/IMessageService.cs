@@ -11,7 +11,7 @@ namespace Business.Abstract
     public interface IMessageService
     {
         IDataResult<List<Message>> GetAll();
-        IResult GetById(int messageId);
+        IDataResult<Message> GetById(int messageId);
         IResult Add(Message message);
         IResult Update(Message message);
         IResult Delete(int id);

@@ -11,7 +11,7 @@ namespace Business.Abstract
     public interface IServiceService
     {
         IDataResult<List<Service>> GetAll();
-        IResult GetById(int serviceId);
+        IDataResult<Service> GetById(int serviceId);
         IResult Add(Service service);
         IResult Update(Service service);
         IResult Delete(int id);

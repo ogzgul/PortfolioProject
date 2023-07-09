@@ -1,0 +1,28 @@
+﻿
+@{
+    ViewData["Title"] = "AddExperience";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="card-header border-0">
+    <h3 class="mb-0">Yetenek Ekleme Sayfası</h3>
+</div>
+<form class="form-control" method="post">
+    <br />
+    @Html.Label("Deneyim Başlığı")
+    <input type="text" name="Name" class="form-group" />
+    <br />
+    <label>Tarih</label>
+    <input type="text" name="Date" />
+    <br />
+    <label>Resim Yolu</label>
+    <input type="text" name="ImageUrl" />
+    <br />
+    <label>Açıklama</label>
+    <input type="text" name="Description" />
+    <br />
+    <button class="btn btn-info">Kayıt Et</button>
+    <br />
+</form>
+
+

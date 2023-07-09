@@ -11,7 +11,7 @@ namespace Business.Abstract
     public interface IPortfolioService
     {
         IDataResult<List<Portfolio>> GetAll();
-        IResult GetById(int portfolioId);
+        IDataResult<Portfolio> GetById(int portfolioId);
         IResult Add(Portfolio portfolio);
         IResult Update(Portfolio portfolio);
         IResult Delete(int id);

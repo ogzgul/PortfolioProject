@@ -30,6 +30,7 @@ namespace Business.Concrete
         public IResult Delete(int id)
         {
             var deletedMessage = _messageDal.Get(x => x.MessageID == id);
+            _messageDal.Delete(deletedMessage);
             return new SuccessResult($"Deleted message: {id} number's {Messages.MessageDeleted}");
         }
 
@@ -39,7 +40,7 @@ namespace Business.Concrete
             return new SuccessDataResult<List<Message>>(listedMessage, Messages.MessageGetAll);
         }
 
-        public IResult GetById(int messageId)
+        public IDataResult<Message> GetById(int messageId)
         {
             var listMessageGetById = _messageDal.Get(x => x.MessageID == messageId);
             return new SuccessDataResult<Message>(listMessageGetById, Messages.MessageGetById);

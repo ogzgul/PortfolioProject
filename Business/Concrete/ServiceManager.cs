@@ -40,7 +40,7 @@ namespace Business.Concrete
             return new SuccessDataResult<List<Service>>(listedService, Messages.ServiceGetAll);
         }
 
-        public IResult GetById(int serviceId)
+        public IDataResult<Service> GetById(int serviceId)
         {
             var listServiceGetById = _serviceDal.Get(x => x.ServiceID == serviceId);
             return new SuccessDataResult<Service>(listServiceGetById, Messages.ServiceGetById);

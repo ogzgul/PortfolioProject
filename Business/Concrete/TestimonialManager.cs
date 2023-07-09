@@ -30,6 +30,7 @@ namespace Business.Concrete
         public IResult Delete(int id)
         {
             var deletedTestimonial = _testimonialDal.Get(x => x.TestimonialID == id);
+            _testimonialDal.Delete(deletedTestimonial);
             return new SuccessResult($"Deleted testimonial: {id} number's {Messages.TestimonialDeleted}");
         }
 
@@ -39,7 +40,7 @@ namespace Business.Concrete
             return new SuccessDataResult<List<Testimonial>>(listedTestimonial, Messages.TestimonialGetAll);
         }
 
-        public IResult GetById(int testimonialId)
+        public IDataResult<Testimonial> GetById(int testimonialId)
         {
             var listTestimonialGetById = _testimonialDal.Get(x => x.TestimonialID == testimonialId);
             return new SuccessDataResult<Testimonial>(listTestimonialGetById, Messages.TestimonialGetById);

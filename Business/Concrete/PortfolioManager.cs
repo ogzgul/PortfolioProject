@@ -30,6 +30,7 @@ namespace Business.Concrete
         public IResult Delete(int id)
         {
             var deletedPortfolio = _portfolioDal.Get(x => x.PortfolioID == id);
+            _portfolioDal.Delete(deletedPortfolio);
             return new SuccessResult($"Deleted portfolio: {id} number's {Messages.PortfolioDeleted}");
         }
 
@@ -39,7 +40,7 @@ namespace Business.Concrete
             return new SuccessDataResult<List<Portfolio>>(listedPortfolio, Messages.PortfolioGetAll);
         }
 
-        public IResult GetById(int portfolioId)
+        public IDataResult<Portfolio> GetById(int portfolioId)
         {
             var listPortfolioGetById = _portfolioDal.Get(x => x.PortfolioID == portfolioId);
             return new SuccessDataResult<Portfolio>(listPortfolioGetById, Messages.PortfolioGetById);
