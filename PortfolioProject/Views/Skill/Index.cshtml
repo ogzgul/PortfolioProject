@@ -2,7 +2,7 @@
 @model List<Skill>
 @{
     ViewData["Title"] = "Index";
-    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+    Layout = "~/Views/Shared/_NewAdminLayout.cshtml";
 }
 
 <div class="card-header border-0">
@@ -41,11 +41,11 @@
                             </div>
                         </div>
                     </td>
-                    <td><a href="/Skill/DeleteSkill/@item.SkillID" class="btn btn-danger">Sil</a></td>
-                    <td><a href="/Skill/EditSkill/@item.SkillID" class="btn btn-success">Güncelle</a></td>
+                    <td><a href="/Skill/DeleteSkill/@item.SkillID" class="btn btn-outline-danger">Sil</a></td>
+                    <td><a href="/Skill/EditSkill/@item.SkillID" class="btn btn-outline-success">Güncelle</a></td>
                 </tr>
             }
         </tbody>
     </table>
-    <a href="/Skill/AddSkill/" class="btn btn-primary" >Yeni Yetenek Ekle</a>
+    <a href="/Skill/AddSkill/" class="btn btn-outline-primary" >Yeni Yetenek Ekle</a>
 </div>

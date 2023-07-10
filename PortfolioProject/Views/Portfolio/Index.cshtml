@@ -2,7 +2,7 @@
 @model List<Portfolio>
 @{
     ViewData["Title"] = "Index";
-    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+    Layout = "~/Views/Shared/_NewAdminLayout.cshtml";
 }
 <div class="row">
     <div class="col">
@@ -28,7 +28,7 @@
                                 <th scope="row">
                                     <div class="media align-items-center">
                                         <a href="#" class="avatar rounded-circle mr-3">
-                                            <img alt="Image placeholder" src="@item.Platform">
+                                            <img src="@item.Platform">
                                         </a>
                                         <div class="media-body">
                                             <span class="name mb-0 text-sm">@item.Name</span>
@@ -64,9 +64,9 @@
                         }
                     </tbody>
                 </table>
-                
+                <a href="/Portfolio/AddPortfolio/" class="btn btn-outline-primary">Yeni Proje Ekle</a>
             </div>
         </div>
     </div>
-<a href="/Portfolio/AddPortfolio/" class="btn btn-primary">Yeni Proje Ekle</a>
+
 </div>

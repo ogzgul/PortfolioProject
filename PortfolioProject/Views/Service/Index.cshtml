@@ -2,7 +2,7 @@
 @model List<Service>
 @{
     ViewData["Title"] = "Index";
-    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+    Layout = "~/Views/Shared/_NewAdminLayout.cshtml";
 }
 
 <div class="card-header border-0">
@@ -30,11 +30,11 @@
                     <th class="budget">
                         @item.Title
                     </th>
-                    <td><a href="/Service/DeleteService/@item.ServiceID" class="btn btn-danger">Sil</a></td>
-                    <td><a href="/Service/EditService/@item.ServiceID" class="btn btn-success">Güncelle</a></td>
+                    <td><a href="/Service/DeleteService/@item.ServiceID" class="btn btn-outline-danger">Sil</a></td>
+                    <td><a href="/Service/EditService/@item.ServiceID" class="btn btn-outline-success">Güncelle</a></td>
                 </tr>
             }
         </tbody>
     </table>
-    <a href="/Service/AddService/" class="btn btn-primary">Yeni Hizmet Ekle</a>
+    <a href="/Service/AddService/" class="btn btn-outline-primary">Yeni Hizmet Ekle</a>
 </div>
