@@ -4,7 +4,7 @@ namespace PortfolioProject.Controllers
 {
     public class AdminController : Controller
     {
-        public PartialViewResult PartialSideBar()
+        public PartialViewResult PartialSidebar()
         {
             return PartialView();
         }
@@ -26,6 +26,10 @@ namespace PortfolioProject.Controllers
             return PartialView();
         }
         public PartialViewResult NavigationPartial()
+        {
+            return PartialView();
+        }
+        public PartialViewResult NewSidebar()
         {
             return PartialView();
         }
