@@ -68,5 +68,17 @@ namespace Business.Constants
         public static string TestimonialGetById = "Get Testimonial";
         public static string TestimonialUpdated = "Testimonial Updated";
 
+        public static string UserAdded = "User Added";
+        public static string UserDeleted = "User Deleted";
+        public static string UserGetAll = "GetAll User";
+        public static string UserGetById = "Get User";
+        public static string UserUpdated = "User Updated";
+
+        public static string UserMessageAdded = "UserMessage Added";
+        public static string UserMessageDeleted = "UserMessage Deleted";
+        public static string UserMessageGetAll = "GetAll UserMessage";
+        public static string UserMessageGetById = "Get UserMessage";
+        public static string UserMessageUpdated = "UserMessage Updated";
+
     }
 }
