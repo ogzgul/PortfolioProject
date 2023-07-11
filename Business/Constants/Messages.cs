@@ -80,5 +80,11 @@ namespace Business.Constants
         public static string UserMessageGetById = "Get UserMessage";
         public static string UserMessageUpdated = "UserMessage Updated";
 
+        public static string TodoListAdded = "TodoList Added";
+        public static string TodoListDeleted = "TodoList Deleted";
+        public static string TodoListGetAll = "GetAll TodoList";
+        public static string TodoListGetById = "Get TodoList";
+        public static string TodoListUpdated = "TodoList Updated";
+
     }
 }

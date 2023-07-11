@@ -1,4 +1,5 @@
 ﻿using Entities.Concrete;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -8,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace DataAccess.Concrete.EntityFramework
 {
-    public class PortfolioContext:DbContext
+    public class PortfolioContext:IdentityDbContext<WriterUser,WriterRole,int>
     {
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -27,5 +28,6 @@ namespace DataAccess.Concrete.EntityFramework
         public DbSet<Testimonial> Testimonials { get; set; }
         public DbSet<User> Users { get; set; }
         public DbSet<UserMessage> UserMessages { get; set; }
+        public DbSet<TodoList> TodoLists { get; set; }
     }
 }
