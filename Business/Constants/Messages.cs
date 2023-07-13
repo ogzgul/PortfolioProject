@@ -86,5 +86,11 @@ namespace Business.Constants
         public static string TodoListGetById = "Get TodoList";
         public static string TodoListUpdated = "TodoList Updated";
 
+        public static string AnnouncementAdded = "Announcement Added";
+        public static string AnnouncementDeleted = "Announcement Deleted";
+        public static string AnnouncementGetAll = "GetAll Announcement";
+        public static string AnnouncementGetById = "Get Announcement";
+        public static string AnnouncementUpdated = "Announcement Updated";
+
     }
 }

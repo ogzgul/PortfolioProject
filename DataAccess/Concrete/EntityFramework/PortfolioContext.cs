@@ -29,5 +29,6 @@ namespace DataAccess.Concrete.EntityFramework
         public DbSet<User> Users { get; set; }
         public DbSet<UserMessage> UserMessages { get; set; }
         public DbSet<TodoList> TodoLists { get; set; }
+        public DbSet<Announcement> Announcements { get; set; }
     }
 }
