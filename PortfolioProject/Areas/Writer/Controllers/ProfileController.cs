@@ -1,19 +1,25 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Business.Concrete;
+using Entities.Concrete;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Mvc;
+using System.Threading.Tasks;
 
 namespace PortfolioProject.Areas.Writer.Controllers
 {
     [Area("Writer")]
     public class ProfileController : Controller
     {
-        [HttpGet]
-        public IActionResult Index()
+        private readonly UserManager<WriterUser> _userManager;
+
+        public ProfileController(UserManager<WriterUser> userManager)
         {
-            return View();
+            _userManager = userManager;
         }
-        [HttpPost]
-        public IActionResult Index(string b)
+
+        public async Task<IActionResult> Index()
         {
-            return View();
+            var values = await _userManager.FindByNameAsync(User.Identity.Name);
+            return View(values);
         }
     }
 }
