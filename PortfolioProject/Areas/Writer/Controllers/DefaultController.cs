@@ -1,15 +1,20 @@
-﻿using Microsoft.AspNetCore.Authorization;
+﻿using Business.Concrete;
+using DataAccess.Abstract;
+using DataAccess.Concrete.EntityFramework;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace PortfolioProject.Areas.Writer.Controllers
 {
+    [Area("Writer")]
+    [Authorize]
     public class DefaultController : Controller
     {
-        [Area("Writer")]
-        [Authorize]
+        AnnouncementManager announcementManager = new AnnouncementManager(new EfAnnouncementDal());
         public IActionResult Index()
         {
-            return View();
+            var listedAnnouncement=announcementManager.GetAll().Data;
+            return View(listedAnnouncement);
         }
     }
 }
