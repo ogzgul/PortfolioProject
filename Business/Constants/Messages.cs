@@ -92,5 +92,11 @@ namespace Business.Constants
         public static string AnnouncementGetById = "Get Announcement";
         public static string AnnouncementUpdated = "Announcement Updated";
 
+        public static string WriterMessageAdded = "WriterMessage Added";
+        public static string WriterMessageDeleted = "WriterMessage Deleted";
+        public static string WriterMessageGetAll = "GetAll WriterMessage";
+        public static string WriterMessageGetById = "Get WriterMessage";
+        public static string WriterMessageUpdated = "WriterMessage Updated";
+
     }
 }
