@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 namespace PortfolioProject.Areas.Writer.Controllers
 {
     [Area("Writer")]
+    [Route("Writer/[controller]/[action]")]
     public class LoginController : Controller
     {
         private readonly SignInManager<WriterUser> _signInManager;
@@ -28,7 +29,7 @@ namespace PortfolioProject.Areas.Writer.Controllers
                 var result = await _signInManager.PasswordSignInAsync(userLoginViewModel.UserName, userLoginViewModel.Password, true, true);
                 if (result.Succeeded)
                 {
-                    return RedirectToAction("Index", "Default");
+                    return RedirectToAction("Index", "Profile", new {area="Writer"});
                 }
                 else
                 {

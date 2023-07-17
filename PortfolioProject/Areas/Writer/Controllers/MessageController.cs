@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 namespace PortfolioProject.Areas.Writer.Controllers
 {
     [Area("Writer")]
+    [Route("Writer/Message")]
     public class MessageController : Controller
     {
         WriterMessageManager writerMessageManager = new WriterMessageManager(new EfWriterMessageDal());
@@ -19,15 +20,17 @@ namespace PortfolioProject.Areas.Writer.Controllers
         {
             _userManager = userManager;
         }
-
+        [Route("")]
+        [Route("ReceiverMessage")]
         public async Task<IActionResult> ReceiverMessage(string p)
         {
             var values = await _userManager.FindByNameAsync(User.Identity.Name);
             p = values.Email;
-            var messageList=writerMessageManager.GetListReceiverMessage(p).Data;
+            var messageList = writerMessageManager.GetListReceiverMessage(p).Data;
             return View(messageList);
         }
-
+        [Route("")]
+        [Route("SenderMessage")]
         public async Task<IActionResult> SenderMessage(string p)
         {
             var values = await _userManager.FindByNameAsync(User.Identity.Name);
@@ -35,12 +38,13 @@ namespace PortfolioProject.Areas.Writer.Controllers
             var messageList = writerMessageManager.GetListSenderMessage(p).Data;
             return View(messageList);
         }
+        [Route("MessageDetails/{id}")]
         public IActionResult MessageDetails(int id)
         {
             WriterMessage writerMessage = writerMessageManager.GetById(id).Data;
             return View(writerMessage);
         }
-
+        [Route("ReceiverMessageDetails/{id}")]
         public IActionResult ReceiverMessageDetails(int id)
         {
             WriterMessage writerMessage = writerMessageManager.GetById(id).Data;
@@ -48,11 +52,15 @@ namespace PortfolioProject.Areas.Writer.Controllers
         }
 
         [HttpGet]
+        [Route("")]
+        [Route("SendMessage")]
         public IActionResult SendMessage()
         {
             return View();
         }
         [HttpPost]
+        [Route("")]
+        [Route("SendMessage")]
         public async Task<IActionResult> SendMessage(WriterMessage writerMessage)
         {
             var values = await _userManager.FindByNameAsync(User.Identity.Name);
@@ -65,7 +73,7 @@ namespace PortfolioProject.Areas.Writer.Controllers
             var userNameSurName = c.Users.Where(x => x.Email == writerMessage.Receiver).Select(x => x.Name + "" + x.Surname).FirstOrDefault();
             writerMessage.ReceiverName = userNameSurName;
             writerMessageManager.Add(writerMessage);
-            return RedirectToAction("SenderMessage", "Message");
+            return RedirectToAction("SenderMessage");
         }
     }
 }
