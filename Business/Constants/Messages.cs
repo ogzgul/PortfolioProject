@@ -68,18 +68,6 @@ namespace Business.Constants
         public static string TestimonialGetById = "Get Testimonial";
         public static string TestimonialUpdated = "Testimonial Updated";
 
-        public static string UserAdded = "User Added";
-        public static string UserDeleted = "User Deleted";
-        public static string UserGetAll = "GetAll User";
-        public static string UserGetById = "Get User";
-        public static string UserUpdated = "User Updated";
-
-        public static string UserMessageAdded = "UserMessage Added";
-        public static string UserMessageDeleted = "UserMessage Deleted";
-        public static string UserMessageGetAll = "GetAll UserMessage";
-        public static string UserMessageGetById = "Get UserMessage";
-        public static string UserMessageUpdated = "UserMessage Updated";
-
         public static string TodoListAdded = "TodoList Added";
         public static string TodoListDeleted = "TodoList Deleted";
         public static string TodoListGetAll = "GetAll TodoList";
@@ -97,6 +85,8 @@ namespace Business.Constants
         public static string WriterMessageGetAll = "GetAll WriterMessage";
         public static string WriterMessageGetById = "Get WriterMessage";
         public static string WriterMessageUpdated = "WriterMessage Updated";
+        public static string WriterMessageGetSenderMessage = "WriterMessage GetSenderMessage";
+        public static string WriterMessageGetReceiverMessage = "WriterMessage GetSenderMessage";
 
     }
 }

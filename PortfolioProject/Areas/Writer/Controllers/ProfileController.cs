@@ -44,6 +44,7 @@ namespace PortfolioProject.Areas.Writer.Controllers
             }
             user.Name = userEditViewModel.Name;
             user.Surname = userEditViewModel.Surname;
+            user.PasswordHash = _userManager.PasswordHasher.HashPassword(user, userEditViewModel.Password);
             var result = await _userManager.UpdateAsync(user);
             if (result.Succeeded)
             {

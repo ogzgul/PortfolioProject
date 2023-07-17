@@ -7,6 +7,7 @@ using Entities.Concrete;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -44,6 +45,18 @@ namespace Business.Concrete
         {
             var listWriterMessageGetById = _writerMessageDal.Get(x => x.WriterMessageID == writerMessageId);
             return new SuccessDataResult<WriterMessage>(listWriterMessageGetById, Messages.WriterMessageGetById);
+        }
+
+        public IDataResult<List<WriterMessage>> GetListReceiverMessage(string p)
+        {
+            var listedGetReceiverMessage = _writerMessageDal.GetAll(x => x.Receiver == p);
+            return new SuccessDataResult<List<WriterMessage>>(listedGetReceiverMessage, Messages.WriterMessageGetReceiverMessage);
+        }
+
+        public IDataResult<List<WriterMessage>> GetListSenderMessage(string p)
+        {
+            var listedGetSenderMessage = _writerMessageDal.GetAll(x => x.Sender == p);
+            return new SuccessDataResult<List<WriterMessage>>(listedGetSenderMessage, Messages.WriterMessageGetSenderMessage);
         }
 
         public IResult Update(WriterMessage writerMessage)

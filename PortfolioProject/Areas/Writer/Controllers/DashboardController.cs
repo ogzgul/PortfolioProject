@@ -31,9 +31,9 @@ namespace PortfolioProject.Areas.Writer.Controllers
 
             //Statistics
             PortfolioContext context = new PortfolioContext();
-            ViewBag.v1 = 0;
+            ViewBag.v1 = context.WriterMessages.Where(x=>x.Receiver==values.Email).Count();
             ViewBag.v2 = context.Announcements.Count();
-            ViewBag.v3 = 0;
+            ViewBag.v3 = context.Users.Count();
             ViewBag.v4 = context.Skills.Count();
             return View();
         }
