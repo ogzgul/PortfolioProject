@@ -22,6 +22,7 @@ namespace PortfolioProject.Controllers
         [HttpPost]
         public IActionResult AddSocialMedia(SocialMedia socialMedia)
         {
+            socialMedia.Status = true;
             _socialMediaManager.Add(socialMedia);
             return RedirectToAction("Index");
         }
