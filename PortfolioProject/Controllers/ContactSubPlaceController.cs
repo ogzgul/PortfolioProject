@@ -5,21 +5,21 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace PortfolioProject.Controllers
 {
-    public class AboutController : Controller
+    public class ContactSubPlaceController : Controller
     {
-        AboutManager aboutManager = new AboutManager(new EfAboutDal());
+        ContactManager _contactManager = new ContactManager(new EfContactDal());
         [HttpGet]
         public IActionResult Index()
         {
-            var listAbout = aboutManager.GetById(1).Data;
-            return View(listAbout);
+            var listContact = _contactManager.GetById(1).Data;
+            return View(listContact);
         }
 
 
         [HttpPost]
-        public IActionResult Index(About about)
+        public IActionResult Index(Contact contact)
         {
-            aboutManager.Update(about);
+            _contactManager.Update(contact);
             return RedirectToAction("Index", "Default");
         }
     }
