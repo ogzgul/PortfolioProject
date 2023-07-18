@@ -10,9 +10,6 @@ namespace PortfolioProject.Controllers
         ExperienceManager experienceManager = new ExperienceManager(new EfExperienceDal());
         public IActionResult Index()
         {
-            ViewBag.v1 = "Deneyim Listesi";
-            ViewBag.v2 = "Deneyimler";
-            ViewBag.v3 = "Deneyim Listesi";
             var listedExperience = experienceManager.GetAll().Data;
             return View(listedExperience);
         }
@@ -38,9 +35,6 @@ namespace PortfolioProject.Controllers
         [HttpGet]
         public IActionResult EditExperience(int id)
         {
-            ViewBag.v1 = "Düzenleme";
-            ViewBag.v2 = "Yetenekler";
-            ViewBag.v3 = "Yetenek Güncelleme";
             var editExperience = experienceManager.GetById(id).Data;
             return View(editExperience);
         }

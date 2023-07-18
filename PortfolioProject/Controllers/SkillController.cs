@@ -1,4 +1,4 @@
-﻿using Business.Concrete;
+﻿ using Business.Concrete;
 using Core.Utilities.Results;
 using DataAccess.Concrete.EntityFramework;
 using Entities.Concrete;
@@ -11,18 +11,12 @@ namespace PortfolioProject.Controllers
         SkillManager skillManager= new SkillManager(new EfSkillDal());
         public IActionResult Index()
         {
-            ViewBag.v1 = "Yetenek Listesi";
-            ViewBag.v2 = "Yetenekler";
-            ViewBag.v3 = "Yetenek Listesi";
             var listedSkill = skillManager.GetAll().Data;
             return View(listedSkill);
         }
         [HttpGet]
         public IActionResult AddSkill()
         {
-            ViewBag.v1 = "Yetenek Ekleme";
-            ViewBag.v2 = "Yetenekler";
-            ViewBag.v3 = "Yetenek Ekleme";
             return View();
         }
         [HttpPost]
@@ -42,9 +36,6 @@ namespace PortfolioProject.Controllers
         [HttpGet]
         public IActionResult EditSkill(int id)
         {
-            ViewBag.v1 = "Düzenleme";
-            ViewBag.v2 = "Yetenekler";
-            ViewBag.v3 = "Yetenek Güncelleme";
             var editSkill=skillManager.GetById(id).Data;
             return View(editSkill);
         }

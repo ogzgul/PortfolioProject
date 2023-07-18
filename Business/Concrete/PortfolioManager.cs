@@ -52,7 +52,12 @@ namespace Business.Concrete
             Portfolio updatedPortfolio = new Portfolio()
             {
                 PortfolioID = portfolio.PortfolioID,
+                ImageUrl2=portfolio.ImageUrl2,
                 ImageUrl = portfolio.ImageUrl,
+                Price=portfolio.Price,
+                Value=portfolio.Value,
+                ProjectUrl=portfolio.ProjectUrl,
+                Platform=portfolio.Platform,
                 Name = portfolio.Name
             };
             _portfolioDal.Update(updatedPortfolio);

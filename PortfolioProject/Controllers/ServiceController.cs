@@ -11,9 +11,6 @@ namespace PortfolioProject.Controllers
        
         public IActionResult Index()
         {
-            ViewBag.v1 = "Hizmet Listesi";
-            ViewBag.v2 = "Hizmetler";
-            ViewBag.v3 = "Hizmet Listesi";
             var listedSkill = serviceManager.GetAll().Data;
             return View(listedSkill);
         }
@@ -21,9 +18,6 @@ namespace PortfolioProject.Controllers
         [HttpGet]
         public IActionResult AddService()
         {
-            ViewBag.v1 = "Hizmet Ekleme";
-            ViewBag.v2 = "Hizmetler";
-            ViewBag.v3 = "Hizmet Ekleme";
             return View();
         }
         [HttpPost]
@@ -43,9 +37,6 @@ namespace PortfolioProject.Controllers
         [HttpGet]
         public IActionResult EditService(int id)
         {
-            ViewBag.v1 = "Hizmet Listesi";
-            ViewBag.v2 = "Hizmetler";
-            ViewBag.v3 = "Hizmet Güncelleme";
             var editService = serviceManager.GetById(id).Data;
             return View(editService);
         }

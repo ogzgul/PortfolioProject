@@ -12,9 +12,6 @@ namespace PortfolioProject.Controllers
         PortfolioManager portfolioManager = new PortfolioManager(new EfPortfolioDal());
         public IActionResult Index()
         {
-            ViewBag.v1 = "Proje Listesi";
-            ViewBag.v2 = "Projelerim";
-            ViewBag.v3 = "Proje Listesi";
             var listedPortfolio= portfolioManager.GetAll().Data;
             return View(listedPortfolio);
         }
@@ -23,9 +20,6 @@ namespace PortfolioProject.Controllers
         public IActionResult AddPortfolio()
         {
 
-            ViewBag.v1 = "Proje Listesi";
-            ViewBag.v2 = "Projelerim";
-            ViewBag.v3 = "Proje Ekleme";
             return View();
         }
         [HttpPost]
@@ -59,9 +53,6 @@ namespace PortfolioProject.Controllers
         [HttpGet]
         public IActionResult EditPortfolio(int id)
         {
-            ViewBag.v1 = "Düzenleme";
-            ViewBag.v2 = "Projeler";
-            ViewBag.v3 = "Proje Güncelleme";
             var editPortfolio = portfolioManager.GetById(id).Data;
             return View(editPortfolio);
         }

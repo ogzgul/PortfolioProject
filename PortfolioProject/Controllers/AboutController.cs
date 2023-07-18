@@ -11,9 +11,6 @@ namespace PortfolioProject.Controllers
         [HttpGet]
         public IActionResult Index()
         {
-            ViewBag.v1 = "Düzenleme";
-            ViewBag.v2 = "Hakkımda";
-            ViewBag.v3 = "Hakkımda Güncelleme";
             var editSkill = aboutManager.GetById(1).Data;
             return View(editSkill);
         }
