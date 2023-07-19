@@ -80,6 +80,12 @@ namespace Business.Constants
         public static string AnnouncementGetById = "Get Announcement";
         public static string AnnouncementUpdated = "Announcement Updated";
 
+        public static string WriterUserAdded = "WriterUser Added";
+        public static string WriterUserDeleted = "WriterUser Deleted";
+        public static string WriterUserGetAll = "GetAll WriterUser";
+        public static string WriterUserGetById = "Get WriterUser";
+        public static string WriterUserUpdated = "WriterUser Updated";
+
         public static string WriterMessageAdded = "WriterMessage Added";
         public static string WriterMessageDeleted = "WriterMessage Deleted";
         public static string WriterMessageGetAll = "GetAll WriterMessage";

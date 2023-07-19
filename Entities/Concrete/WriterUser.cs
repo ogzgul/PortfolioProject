@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Entities.Concrete
 {
-    public class WriterUser:IdentityUser<int>
+    public class WriterUser:IdentityUser<int>,IEntity
     {
         public string Name { get; set; }
         public string Surname { get; set; }
