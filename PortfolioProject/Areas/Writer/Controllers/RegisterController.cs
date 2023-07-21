@@ -1,5 +1,6 @@
 ﻿using Business.Concrete;
 using Entities.Concrete;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using PortfolioProject.Areas.Writer.Models;
@@ -7,6 +8,7 @@ using System.Threading.Tasks;
 
 namespace PortfolioProject.Areas.Writer.Controllers
 {
+    [AllowAnonymous]
     [Area("Writer")]
     [Route("Writer/[controller]/[action]")]
     public class RegisterController : Controller
