@@ -24,14 +24,22 @@ namespace PortfolioProject.Controllers
         {
             return PartialView();
         }
+
+        [HttpGet]
+
+        public PartialViewResult SendMessage()
+        {
+            return PartialView();
+        }
+
         [HttpPost]
-        public PartialViewResult SendMessage(Message message)
+        public IActionResult SendMessage(Message message)
         {
             MessageManager _messageManager = new MessageManager(new EfMessageDal());
             message.Date = Convert.ToDateTime(DateTime.Now.ToShortDateString());
             message.Status = true;
             _messageManager.Add(message);
-            return PartialView();
+            return RedirectToAction("Index","Default");
         }
     }
 }
