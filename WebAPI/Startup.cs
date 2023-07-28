@@ -32,6 +32,7 @@ namespace WebAPI
         {
 
             services.AddControllers();
+            services.AddCors();
             services.AddSingleton<IAboutService, AboutManager>();
             services.AddSingleton<IAboutDal, EfAboutDal>();
             services.AddSingleton<IAnnouncementService, AnnouncementManager>();
@@ -76,7 +77,9 @@ namespace WebAPI
                 app.UseSwagger();
                 app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "WebAPI v1"));
             }
-           
+            app.UseCors(builder => builder.AllowAnyOrigin()
+                                  .AllowAnyHeader()
+                                  .AllowAnyMethod());
             app.UseHttpsRedirection();
 
             app.UseRouting();
